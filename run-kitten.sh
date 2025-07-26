@@ -38,7 +38,7 @@ echo "Running kitten_deploy.jar in container '$CONTAINER_NAME' with mounted dire
 
 # Run the JAR with the specified command and config path, mounting the directories
 docker exec -it "$CONTAINER_NAME" java -jar kitten_deploy.jar \
-  --testing-config kitten/scripts/javascript/all-compilers-config.yaml \
+  --testing-config all-compilers-config.yaml \
   --timeout 3600 \
   --max-recursions 5 \
   --enable-splicing true \
