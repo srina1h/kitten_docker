@@ -67,5 +67,8 @@ RUN bazel build kitten/src/org/perses/fuzzer:kitten_deploy.jar \
 RUN chmod +x kitten/scripts/javascript/generate-config.sh \
     && kitten/scripts/javascript/generate-config.sh
 
+# prepare seeds
+RUN bash ./prepare-seeds.sh
+
 # Default command
 CMD ["/bin/bash"] 
