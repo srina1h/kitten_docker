@@ -68,7 +68,7 @@ RUN chmod +x kitten/scripts/javascript/generate-config.sh \
     && kitten/scripts/javascript/generate-config.sh
 
 # prepare seeds
-RUN bash ./prepare-seeds.sh
+RUN bash ./prepare_seeds.sh
 
 # Default command
 CMD ["/bin/bash"] 
