@@ -17,6 +17,7 @@ RUN apt-get update && \
     unzip \
     python3 \
     python3-pip \
+    coreutils \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js 18 (LTS) and npm
@@ -67,8 +68,9 @@ RUN bazel build kitten/src/org/perses/fuzzer:kitten_deploy.jar \
 RUN chmod +x kitten/scripts/javascript/generate-config.sh \
     && kitten/scripts/javascript/generate-config.sh
 
-# prepare seeds
-RUN chmod +x prepare_seeds.sh && ./prepare_seeds.sh
+# Copy startup script
+COPY startup.sh /startup.sh
+RUN chmod +x /startup.sh
 
 # Default command
-CMD ["/bin/bash"] 
+ENTRYPOINT ["/startup.sh"] 
